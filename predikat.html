@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Status Kelulusan</title>
+<style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    #result {
+        font-size: 12pt;
+        margin-top: 20px;
+    }
+
+    .wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+    }
+    
+    .container {
+        width: 320px;
+        padding: 20px;
+        box-sizing: border-box;
+        border: 1px solid black;
+        border-radius: 10px;
+    }
+
+    #nama, #nilai, #buttonSubmit {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    #nama, #nilai {
+        width: 97.2% !important;
+    }
+</style>
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Cek Predikat</h1>
+        <div class="container">
+            <input type="text" id="nama" placeholder="Masukkan Nama">
+            <input type="number" id="nilai" placeholder="Masukkan Nilai">
+            <input type="submit" id="buttonSubmit" value="Submit" onclick="cekPredikat()">
+            <div id="result"></div>
+        </div>
+    </div>
+<script>
+function cekPredikat() {
+    var predikat = document.getElementById("nilai").value;
+    var resultElement = document.getElementById("result");
+
+    if (predikat !== "" && !isNaN(predikat)) {
+        if (parseInt(predikat) >= 75) {
+            resultElement.textContent = "Lulus";
+        }
+        if (parseInt(predikat) <= 75) {
+            resultElement.textContent = "Tidak Lulus";
+        }
+    } else {
+        resultElement.textContent = "Masukkan Nilai yang Valid";
+    }
+}
+</script>
+</body>
+</html>
